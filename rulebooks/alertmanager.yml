@@ -25,3 +25,8 @@
       action:
         debug:
           msg: "enabled on: {{ event.meta.hosts }}"
+
+    - name: Capture all other events from this source
+      condition: event.alert is defined
+      action:
+        debug:

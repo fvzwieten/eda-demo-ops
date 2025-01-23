@@ -1,4 +1,4 @@
-lved---
+---
 - name: Capture alertmanager alerts
   hosts: localhost
   sources:

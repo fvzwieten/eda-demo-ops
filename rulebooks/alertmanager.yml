@@ -22,6 +22,18 @@
       action:
         debug:
           msg: "enabled on: {{ event.payload.alerts[0].labels.instance }}"
+
+    - name: Network connectiviy issues (firing)
+      condition: event.payload.alerts[0].labels.alertname == "NetworkConnectivityIssue" and event.payload.alerts[0].status == "firing"
+      action:
+        debug:
+          msg: "disabled on: {{ event.payload.alerts[0].labels.instance }}"
+
+    - name: Network connectiviy issues (resolved)
+      condition: event.payload.alerts[0].labels.alertname == "NetworkConnectivityIssue" and event.payload.alerts[0].status == "resolved"
+      action:
+        debug:
+          msg: "enabled on: {{ event.payload.alerts[0].labels.instance }}"
           
     - name: Catch all
       condition: event.meta is defined

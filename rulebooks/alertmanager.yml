@@ -11,6 +11,18 @@
         skip_original_data: true
 
   rules:
+    - name: SELinux was disabled (firing)
+      condition: event.payload.alerts[0].labels.alertname == "selinux disabled" and event.payload.alerts[0].status == "firing"
+      action:
+        debug:
+          msg: "disabled on: {{ event.meta.hosts }}"
+
+    - name: SELinux was disabled (resolved)
+      condition: event.payload.alerts[0].labels.alertname == "selinux disabled" and event.payload.alerts[0].status == "resolved"
+      action:
+        debug:
+          msg: "enabled on: {{ event.meta.hosts }}"
+          
     - name: Catch all
       condition: event.meta is defined
       action:

@@ -15,13 +15,13 @@
       condition: event.payload.alerts[0].labels.alertname == "selinux disabled" and event.payload.alerts[0].status == "firing"
       action:
         debug:
-          msg: "disabled on: {{ event.meta.hosts }}"
+          msg: "disabled on: {{ event.payload.alerts[0].labels.instance }}"
 
     - name: SELinux was disabled (resolved)
       condition: event.payload.alerts[0].labels.alertname == "selinux disabled" and event.payload.alerts[0].status == "resolved"
       action:
         debug:
-          msg: "enabled on: {{ event.meta.hosts }}"
+          msg: "enabled on: {{ event.payload.alerts[0].labels.instance }}"
           
     - name: Catch all
       condition: event.meta is defined

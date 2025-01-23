@@ -30,7 +30,8 @@
           name: Reset Network Connection
           organization: ACME
           job_args:
-            server: "{{ event.payload.alerts[0].labels.instance | split('.') | first }}"
+#           server: "{{ event.payload.alerts[0].labels.instance | split('.') | first }}"
+            server: "server12"
 
     - name: Network connectiviy issues (resolved)
       condition: event.payload.alerts[0].labels.alertname == "NetworkConnectivityIssue" and event.payload.alerts[0].status == "resolved"

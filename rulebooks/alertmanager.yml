@@ -30,7 +30,8 @@
           name: Reset Network Connection
           organization: ACME
           job_args:
-            server: "server12"
+            extra_vars:
+              server: "server12"
 
     - name: Network connectiviy issues (resolved)
       condition: event.payload.alerts[0].labels.alertname == "NetworkConnectivityIssue" and event.payload.alerts[0].status == "resolved"

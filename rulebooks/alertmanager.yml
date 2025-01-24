@@ -28,7 +28,7 @@
       action:
         run_job_template:
           name: DemoJobTemplate
-          organization: ACME
+          organization: Default
 #          job_args:
 #           server: "{{ event.payload.alerts[0].labels.instance | split('.') | first }}"
 #            server: "server12"

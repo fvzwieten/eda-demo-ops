@@ -26,7 +26,7 @@
     - name: Network connectiviy issues (firing)
       condition: event.payload.alerts[0].labels.alertname == "NetworkConnectivityIssue" and event.payload.alerts[0].status == "firing"
       action:
-        run_job_template:
+        run_workflow_template:
           name: Reset Network Connection
           organization: ACME
           job_args:

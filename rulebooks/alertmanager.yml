@@ -31,7 +31,7 @@
           organization: ACME
           job_args:
             extra_vars:
-              server: "{{ event.payload.alerts[0].labels.instance | split('.') | first }}"
+              server: "{{ event.payload.alerts[0].labels.instance[:8] }}"
 
     - name: Network connectiviy issues (resolved)
       condition: event.payload.alerts[0].labels.alertname == "NetworkConnectivityIssue" and event.payload.alerts[0].status == "resolved"

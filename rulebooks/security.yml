@@ -9,7 +9,8 @@
         data_host_path: labels.instance
         data_path_separator: .
         skip_original_data: true
-
+        
+  rules:
     - name: SELinux was disabled (firing)
       condition: event.payload.alerts[0].labels.alertname == "selinux disabled" and event.payload.alerts[0].status == "firing"
       action:

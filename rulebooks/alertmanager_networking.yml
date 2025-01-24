@@ -26,8 +26,3 @@
       action:
         debug:
           msg: "Network issue resolved on: {{ event.payload.alerts[0].labels.instance }}"
-          
-    - name: Catch all
-      condition: event.meta is defined
-      action:
-        debug:

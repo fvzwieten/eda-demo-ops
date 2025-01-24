@@ -14,7 +14,7 @@
     - name: SELinux was disabled (firing)
       condition: event.payload.alerts[0].labels.alertname == "selinux disabled" and event.payload.alerts[0].status == "firing"
       action:
-        run_workflow_template:
+        run_job_template:
           name: Harden Linux Server
           organization: ACME
           job_args:

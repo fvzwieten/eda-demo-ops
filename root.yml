@@ -1,1 +1,8 @@
 ---
+name: root
+hosts: all
+
+tasks:
+  - name: bla
+    ansible.builtin.debug:
+      msg: "hello world"
